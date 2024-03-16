@@ -18,7 +18,7 @@ const Layout = () => {
             },
         }}>
             <Tabs.Screen 
-            name="feed" 
+            name="index" 
             options={{
                 tabBarLabel: 'Feed',
                 tabBarIcon: ({ color, size }) => <Ionicons name="search" color={color} size={size} />
