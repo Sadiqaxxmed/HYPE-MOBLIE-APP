@@ -8,11 +8,11 @@ import Outfits from '@/components/Outfits';
 const Page = () => {
     return (
         <SafeAreaView style={{ flex: 1}}>
-        <View style={{ flex: 1, backgroundColor: 'black' }}>
-            <Stack.Screen options={{
-                header: () => <FeedHeader />,
-            }}/>
-            <Outfits />
+            <View style={{ flex: 1, backgroundColor: 'black' }}>
+                <Stack.Screen options={{
+                    header: () => <FeedHeader />,
+                }}/>
+                <Outfits />
             </View>
         </SafeAreaView>
     );

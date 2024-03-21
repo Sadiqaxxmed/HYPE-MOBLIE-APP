@@ -87,7 +87,6 @@ const Outfits = () => {
         keyExtractor={(item) => item.id.toString()}
         />
 
-    //</SafeAreaView> 
     );
     };
 

@@ -97,6 +97,26 @@ function RootLayoutNav() {
             ),
           }}
         />
+        <Stack.Screen 
+        name="(modals)/notifications" 
+        // component={Page} 
+        options={{ 
+          headerTitle: 'Messages', 
+          headerTitleStyle: {
+            fontFamily: 'merr-bold', 
+          },
+          headerBackTitleVisible: false, 
+          headerLeft: () => (
+            <TouchableOpacity onPress={() => router.back()}>
+              <Ionicons name="chevron-back-circle-outline" size={28} color="#A8A4A4" style={{ marginLeft: 10 }} />
+            </TouchableOpacity>
+          ), 
+          headerStyle: {
+            backgroundColor: '#1E1E1E', 
+          },
+          headerTintColor: 'white', 
+        }} 
+        />
         <Stack.Screen name="listing/[id]" options={{ headerTitle: ''}} />
       </Stack>
   );
