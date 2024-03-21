@@ -12,7 +12,7 @@ const Page = () => {
             <Text style={{fontFamily: 'pacif-regular', fontSize: 30, marginBottom: 30, left: 140, color: Colors.primary}}>HYPE</Text>
 
             <TextInput autoCapitalize='none' placeholder='Username, or Email' style={[defaultStyles.inputField, {marginBottom: 30}]}/>
-            <TextInput autoCapitalize='none' placeholder='Password' style={[defaultStyles.inputField]}/>
+            <TextInput autoCapitalize='none' placeholder='Password' style={[defaultStyles.inputField, {color: 'rgba(128, 128, 128, 0.5)'}]}/>
 
             <Text style={{marginTop: 10, textAlign: 'right', fontFamily: 'merr-regular', color: Colors.primary}}>Forgot Password?</Text>
 
@@ -20,23 +20,6 @@ const Page = () => {
                 <Text style={defaultStyles.btnText}>Log In</Text>
             </TouchableOpacity>
             </View>
-
-        {/* 
-            <View style={styles.seperatorView}>
-                <View style={{flex: 1, borderBottomColor: '#000', borderBottomWidth: StyleSheet.hairlineWidth}} />
-                <Text style={styles.seperator}>or</Text>
-                <View style={{flex: 1, borderBottomColor: '#000', borderBottomWidth: StyleSheet.hairlineWidth}} />
-            </View>
-
-            <View style={{ gap: 20}}>
-                <TouchableOpacity style={styles.btnOutline}>
-                    <Ionicons name="call-outline" size={24} color="black" style={defaultStyles.btnIcon} />
-                    <Text style={styles.btnOutlineText}>Continue with Phone</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={[styles.btnOutline]}>
-                    <Text style={styles.btnOutlineText}>Continue with Google</Text>
-                </TouchableOpacity>
-            </View> */}
 
                 <Text style={{fontFamily: 'merr-regular', color: Colors.grey, marginTop: 100, marginBottom: 20}}>Don't have an account? </Text>
                 <Text style={{fontFamily: 'merr-bold', color: Colors.primary}}>Sign Up</Text>
@@ -48,7 +31,7 @@ const Page = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: 'black',
         padding: 26,
     },
     seperatorView: {

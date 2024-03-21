@@ -7,7 +7,7 @@ const Feed = () => {
     console.log('🚀 ~ file: [].tsx:7 ~ Page ~ id:', id);
     return (
         <View>
-            <Text>Feed</Text>
+            <Text>Outfit Details Modal</Text>
         </View>
     );
 };

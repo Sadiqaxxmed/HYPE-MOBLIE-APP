@@ -7,12 +7,15 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 
+import { LinearGradient } from 'expo-linear-gradient';
+
 const Layout = () => {
     return (
+        
         <Tabs
             screenOptions={{
                 tabBarStyle: { 
-                    backgroundColor: 'transparent', 
+                    backgroundColor: 'black', 
                     borderTopWidth: 0, 
                     position: 'absolute', 
                     left: 0,
@@ -42,7 +45,7 @@ const Layout = () => {
             <Tabs.Screen 
                 name="profile" 
                 options={{
-                    tabBarIcon: ({ color, size }) => <Ionicons name="person-outline" color={color} size={size} />
+                    tabBarIcon: ({ color, size }) => <Ionicons name="person" color={color} size={size} />
                 }} 
             />
         </Tabs>
