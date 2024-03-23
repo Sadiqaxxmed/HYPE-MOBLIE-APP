@@ -21,7 +21,7 @@ const Page = () => {
             </TouchableOpacity>
             </View>
 
-                <Text style={{fontFamily: 'merr-regular', color: Colors.grey, marginTop: 100, marginBottom: 20}}>Don't have an account? </Text>
+                <Text style={{fontFamily: 'merr-regular', color: 'white', marginTop: 100, marginBottom: 20}}>Don't have an account? </Text>
                 <Text style={{fontFamily: 'merr-bold', color: Colors.primary}}>Sign Up</Text>
 
         </View>
@@ -31,7 +31,7 @@ const Page = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'black',
+        backgroundColor: '#1E1E1E',
         padding: 26,
     },
     seperatorView: {

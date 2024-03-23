@@ -13,7 +13,7 @@ export const defaultStyles = StyleSheet.create({
         borderRadius: 8,
         padding: 10,
         backgroundColor: '#1E1E1E',
-        color: 'rgba(128, 128, 128, 0.5)',
+        color: 'white',
     },
     btn: {
         backgroundColor: Colors.primary,

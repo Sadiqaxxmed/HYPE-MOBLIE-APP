@@ -3,9 +3,11 @@ import { useFonts } from 'expo-font';
 import { Stack, useRouter } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 import * as SecureStore from 'expo-secure-store';
 import { ClerkProvider, useAuth } from '@clerk/clerk-expo';
+
+import { MaterialIcons } from '@expo/vector-icons';
 
 const CLERK_PUBLISHABLE_KEY = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY;
 
@@ -73,6 +75,14 @@ function RootLayoutNav() {
   const router = useRouter();
   const { isLoaded, isSignedIn } = useAuth();
 
+  const CustomHeader = () => (
+    <View style={{ position: 'absolute', top: 10, left: 10, zIndex: 1 }}>
+      <TouchableOpacity onPress={() => router.back()}>
+        <Ionicons name="chevron-back-sharp" size={24} color="white" />
+      </TouchableOpacity>
+    </View>
+  );
+
   useEffect(() => {
     if (isLoaded && !isSignedIn) {
       router.push('/(modals)/login');
@@ -86,15 +96,17 @@ function RootLayoutNav() {
           name="(modals)/login" 
           options={{
             title: 'Log In or Sign Up',
-            headerTitleStyle: {
-              fontFamily: 'merr-bold',
-            },
+            // statusBarColor: 'black',
             presentation: 'modal',
             headerLeft: () => (
               <TouchableOpacity onPress={() => router.back()}>
-                <Ionicons name="close-outline" size={28} />
+                <Ionicons name="close-outline" size={28}color={'white'}/>
               </TouchableOpacity>
             ),
+            headerStyle: {
+              backgroundColor: '#1E1E1E', 
+            },
+            headerTintColor: 'white', 
           }}
         />
         <Stack.Screen 
@@ -102,9 +114,6 @@ function RootLayoutNav() {
         // component={Page} 
         options={{ 
           headerTitle: 'Messages', 
-          headerTitleStyle: {
-            fontFamily: 'merr-bold', 
-          },
           headerBackTitleVisible: false, 
           headerLeft: () => (
             <TouchableOpacity onPress={() => router.back()}>
@@ -117,7 +126,15 @@ function RootLayoutNav() {
           headerTintColor: 'white', 
         }} 
         />
-        <Stack.Screen name="listing/[id]" options={{ headerTitle: ''}} />
+        <Stack.Screen name="listing/[id]" options={{ 
+          headerTitle: '', 
+          headerTransparent: true,
+          headerLeft: () => (
+            <TouchableOpacity onPress={() => router.back()}>
+              <MaterialIcons name="arrow-back-ios-new" size={28} color="white" top={15}/>
+            </TouchableOpacity>
+          ), }}
+        />
       </Stack>
   );
 }

@@ -1,5 +1,6 @@
 import {View, TouchableOpacity ,SafeAreaView, Text, Image, ListRenderItem, StyleSheet, FlatList, } from 'react-native';
 import React from 'react';
+import { useState } from 'react';
 import { defaultStyles } from '@/constants/Styles';
 import { Link, router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
@@ -8,6 +9,8 @@ import { SimpleLineIcons } from '@expo/vector-icons';
 import Colors from '@/constants/Colors';
 
 const Page = () => {
+
+    const [showActivity, setShowActivity] = useState(true); // Define showActivity state variable
 
     const messagesArr = [
         {
