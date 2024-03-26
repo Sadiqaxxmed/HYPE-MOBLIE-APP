@@ -3,7 +3,7 @@ import { useFonts } from 'expo-font';
 import { Stack, useRouter } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
-import { TouchableOpacity, View } from 'react-native';
+import { TouchableOpacity, View, Text} from 'react-native';
 import * as SecureStore from 'expo-secure-store';
 import { ClerkProvider, useAuth } from '@clerk/clerk-expo';
 
@@ -133,7 +133,9 @@ function RootLayoutNav() {
             <TouchableOpacity onPress={() => router.back()}>
               <MaterialIcons name="arrow-back-ios-new" size={28} color="white" top={15}/>
             </TouchableOpacity>
-          ), }}
+          ), 
+        }}
+          
         />
       </Stack>
   );

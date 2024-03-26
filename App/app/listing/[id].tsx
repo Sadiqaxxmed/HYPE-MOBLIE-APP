@@ -1,11 +1,17 @@
-import {View, Text, Image} from 'react-native';
+import {View, Text, Image, ScrollView, Platform, TextInput} from 'react-native';
 import React from 'react';
 import { Link, useLocalSearchParams } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { Ionicons } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import Colors from '@/constants/Colors';
 
 const Feed = () => {
     const { id } = useLocalSearchParams<{id: string}>();
     console.log('🚀 ~ file: [].tsx:7 ~ Page ~ id:', id);
+
+    const outiftId = id;
 
     const outfitsArr = [
         {
@@ -60,14 +66,42 @@ const Feed = () => {
 
     return (
         <>
-            <SafeAreaView style={{ height: 0, backgroundColor: 'black' }}>
+            <SafeAreaView style={{ backgroundColor: 'black', paddingTop: Platform.OS === 'android' ? 25 : -35  }}>
             </SafeAreaView>
+            <ScrollView style={{backgroundColor: 'black'}}>
+            <View style={{ flex: 1,  height: 950}}>
+                <Image source={{ uri: outfitsArr[0].outfitImage }} style={{ borderTopLeftRadius: 20, borderTopRightRadius: 20, position: 'absolute', top: 0, height: 650, width: 430 }}></Image>
+                <Text style={{fontSize: 30, fontWeight: '900', color: "rgba(255, 255, 255, 0.8)", position: 'absolute', top: 10, right: 60}}>4.8</Text>
+                <Ionicons name="star" size={30} color="rgba(255, 255, 255, 0.8)"  style={{position: 'absolute', top: 10, right: 20}} />
 
-            <View style={{ flex: 1, backgroundColor: 'black', height: 1000}}>
-                <Image source={{ uri: outfitsArr[0].outfitImage }} style={{position: 'absolute', top: 0, height: 650, width: 500}}></Image>
-                <View style={{ position: 'absolute', top: 750, backgroundColor: 'white', height: 400, width: 500, zIndex: 100}}>
+                <View style={{ position: 'absolute', borderRadius: 15, top: 610, backgroundColor: '#1E1E1E', height: 350, width: 430, zIndex: 1}}>
+                    <View style={{ flexDirection: 'row', justifyContent: 'space-between', margin: 10 }}>
+                        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                            <Image source={{ uri: outfitsArr[0].userImage }} style={{ height: 55, width: 55, borderRadius: 25, top: 18, left: 10 }}></Image>
+                            <MaterialCommunityIcons name="dots-horizontal" size={50} color="rgba(255, 255, 255, 0.8)" style={{position: 'absolute', top: 10, left: 355}} />
+                            <Text style={{ color: 'white', top: 5, left: 30, fontWeight: 'bold', fontSize: 30 }}>{outfitsArr[0].userName}</Text>
+                            <Text style={{ color: '#A8A4A4', fontSize: 18, fontWeight: '400', top: 40, left: -200}}>{outfitsArr[0].datePosted}</Text>
+                        </View>
+                    </View>
+
+                    <View style={{ margin: 10, top: 10 }}>
+                        <Text style={{ color: '#A8A4A4', fontSize: 18, fontWeight: '400', top: 10, left: 10, width: 390 }}>This outfit is a lightone you heard! it's one of them ones you throw on casually running through the 6. 🦉 </Text>
+                    </View>
+
+                    <View style={{ margin: 10, top: 10 }}>
+                        <FontAwesome5 name="comment" size={25} color='#505050' style={{ top: 35, left: 10, }}/>
+                        <Ionicons name="share-outline" size={26} color='#505050' style={{ top: 10, left: 50, }} />
+                        <TextInput placeholder='Leave a comment...' placeholderTextColor='#505050' style={{backgroundColor: '#1E1E1E', width: 360, height: 50, borderRadius: 50, borderColor: '#505050', borderWidth: 2.5, color: '#A8A4A4', position: 'absolute', top: 80, left: 0, paddingLeft: 20}}></TextInput>
+                        <Ionicons name="star-outline" size={35} color='#505050' style={{ top: 35, right: -373}} />
+                    </View>
+
+                    <View style={{top: -70, left: 290, height: 40, width: 120, borderRadius: 25, backgroundColor: Colors.primary, justifyContent: 'center', alignItems: 'center'}}>
+                        <Text style={{color: 'white', fontSize: 20, fontWeight: 'bold'}}>Subscribe</Text>
+                    </View>
                 </View>
             </View>
+            </ScrollView>
+
         </>
     );
 };
